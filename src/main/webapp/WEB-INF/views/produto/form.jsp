@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<form action="/springmvc/produto/save" method="post">
+	<form action="/springmvc/produto/form/save" method="post">
 	    <div>
 	        <label>Nome</label>
 	        <input type="text" name="nome" />

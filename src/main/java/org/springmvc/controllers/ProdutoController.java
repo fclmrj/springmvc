@@ -15,11 +15,11 @@ public class ProdutoController {
 		return "/produto/form";
 	}
 	
-	@RequestMapping("/produto/save")
+	@RequestMapping("/produto/form/save")
 	public String save(Produto produto){
 		
 		System.out.println(produto);
 		
-		return "produto/saveSuccess";
+		return "/produto/saveSuccess";
 	}
 }
