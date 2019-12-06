@@ -15,7 +15,14 @@ Project that explore Spring MVC features.
 ```bash
 git clone https://github.com/fclmrj/springmvc.git
 ```
-**2. Build and run the app using maven**
+
+**2. Create Mysql database**
+
+```bash
+create database springmvc
+```
+
+**3. Build and run the app using maven**
 
 ```bash
 mvn package
