@@ -1,5 +1,7 @@
 package org.springmvc.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
@@ -16,5 +18,12 @@ public class ProdutoDAOImpl implements ProdutoDAO {
 	@Override
 	public void gravar(Produto produto) {
 		entityManager.persist(produto);
+	}
+
+	@Override
+	public List<Produto> listar() {
+		return entityManager
+					.createQuery("select p from Produto p", Produto.class)
+						.getResultList();
 	}
 }
