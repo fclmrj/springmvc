@@ -12,12 +12,13 @@ import org.springmvc.model.Produto;
 import org.springmvc.model.TipoPreco;
 
 @Controller
+@RequestMapping("produtos")
 public class ProdutoController {
 	
 	@Autowired	
 	ProdutoDAO produtoDAO;
 
-	@RequestMapping(value="/produtos/list", method=RequestMethod.GET)
+	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public ModelAndView listar(){
 		
 		List<Produto> produtos = produtoDAO.listar();
@@ -26,15 +27,15 @@ public class ProdutoController {
 		return modelAndView;
 	}	
 	
-	@RequestMapping(value="/produtos/form",method=RequestMethod.GET)
+	@RequestMapping(value="/form",method=RequestMethod.GET)
     public ModelAndView form(){
 
-        ModelAndView modelAndView = new ModelAndView("produtos/form");
+        ModelAndView modelAndView = new ModelAndView("/produtos/form");
         modelAndView.addObject("tipos", TipoPreco.values());
         return modelAndView;
     }
 	
-	@RequestMapping(value="/produtos/form/save", method=RequestMethod.POST)
+	@RequestMapping(value="/form/save", method=RequestMethod.POST)
 	public String save(Produto produto){
 		
 		System.out.println(produto);		
