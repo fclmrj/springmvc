@@ -8,6 +8,8 @@
 <title>Spring MVC Features - Produto list</title>
 </head>
 <body>
+	<div>${sucesso}</div>
+	<br>
 	<table>
 	    <tr>
 	        <td>Nome</td>

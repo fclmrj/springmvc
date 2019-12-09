@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springmvc.dao.ProdutoDAO;
 import org.springmvc.model.Produto;
 import org.springmvc.model.TipoPreco;
@@ -36,10 +37,18 @@ public class ProdutoController {
     }
 	
 	@RequestMapping(value="/form/save", method=RequestMethod.POST)
-	public String save(Produto produto){
+	public ModelAndView save(Produto produto, RedirectAttributes redirectAttributes){
 		
 		System.out.println(produto);		
 		produtoDAO.gravar(produto);		
-		return "/produtos/saveSuccess";
+		
+		redirectAttributes.addFlashAttribute("sucesso", "Produto cadastrado com sucesso!");
+
+		return new ModelAndView("redirect:/produtos/list");
+	}
+	
+	@RequestMapping("/saveSuccess")
+	public String saveSuccess(){
+		return "produtos/saveSuccess";
 	}
 }
