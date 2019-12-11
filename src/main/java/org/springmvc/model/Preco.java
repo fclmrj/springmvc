@@ -8,9 +8,9 @@ import javax.persistence.Embeddable;
 public class Preco {
 
 	private BigDecimal valor;
-    private TipoPreco tipo;
+	private TipoPreco tipo;
 	
-    public BigDecimal getValor() {
+	public BigDecimal getValor() {
 		return valor;
 	}
 
