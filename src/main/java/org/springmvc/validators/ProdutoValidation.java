@@ -16,11 +16,7 @@ public class ProdutoValidation implements Validator{
 	public void validate(Object target, Errors errors) {
 
 		ValidationUtils.rejectIfEmpty(errors, "nome", "field.required");
+		ValidationUtils.rejectIfEmpty(errors, "categoria", "field.required");
 		ValidationUtils.rejectIfEmpty(errors, "descricao", "field.required");
-
-		Produto produto = (Produto) target;
-		if(produto.getPrecos().size() == 0){
-			errors.rejectValue("precos", "field.required");
-		}
 	}
 }
