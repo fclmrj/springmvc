@@ -6,15 +6,27 @@
 <head>
 <meta charset="UTF-8">
 <title>Spring MVC Features - Produto list</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<style>
+		.table {
+			width: 800px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	</style>
 </head>
 <body>
-	<div>${sucesso}</div>
+	<c:if test="${sucesso != null}">
+		<div class="alert alert-primary" role="alert" style="width: 800px;margin-left: auto;margin-right: auto;margin-top:15px;">
+  			${sucesso}
+		</div>
+	</c:if>
 	<br>
-	<table>
+	<table class="table table-striped">
 		<tr>
-			<td>Nome</td>
-			<td>Categoria</td>
-			<td>Descrição</td>
+			<th>Nome</th>
+			<th>Categoria</th>
+			<th>Descrição</th>
 		</tr>
 
 		<c:forEach items="${produtos}" var="produto">
@@ -25,7 +37,11 @@
 			</tr>
 		</c:forEach>
 	</table>
+	
 	<br/>
-	<a href="form">Insert</a>
+
+	<div>
+		<a href="form" class="btn btn-primary btn-lg active" style="margin: 0 auto;display: block;width: 200px;margin-bottom: 15px;" role="button" aria-pressed="true">Insert</a>
+	</div>
 </body>
 </html>
