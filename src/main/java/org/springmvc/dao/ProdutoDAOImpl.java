@@ -23,7 +23,7 @@ public class ProdutoDAOImpl implements ProdutoDAO {
 	@Override
 	public List<Produto> listar() {
 		return entityManager
-					.createQuery("select p from Produto p", Produto.class)
+					.createQuery("select p from Produto p join fetch p.precos", Produto.class)
 						.getResultList();
 	}
 }
